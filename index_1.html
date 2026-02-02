@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annette Amoa | Builder, Maker, Problem Solver</title>
+    <meta name="description" content="Technical founder building supply chain traceability. From Ghana to Y Combinator.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+    
+    <!-- Fonts - Apple-style system fonts with serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-bg: #fffef9;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #666;
+            --color-accent: #2d5a27;
+            --color-accent-light: #e8f5e3;
+            --color-warm: #f5ebe0;
+            --color-surface: #ffffff;
+            --color-border: rgba(0, 0, 0, 0.06);
+            --color-yc-orange: #ff6600;
+            --color-nature-green: #4a7c59;
+            --color-nature-light: #e8f2e8;
+            
+            --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --font-serif: 'Source Serif 4', 'New York', Georgia, serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            
+            --max-width: 1100px;
+            --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-display);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Grain overlay for texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.25rem 2rem;
+            background: rgba(255, 254, 249, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-text);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+            padding: 8rem var(--spacing-md) var(--spacing-xl);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            max-width: 540px;
+        }
+
+        .hero-greeting {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero-greeting .wave {
+            display: inline-block;
+            animation: wave 2.5s ease-in-out infinite;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            40% { transform: rotate(-4deg); }
+            50%, 100% { transform: rotate(0deg); }
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+
+        .hero-bio {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            background: var(--color-warm);
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            color: var(--color-text);
+        }
+
+        .tag.yc {
+            background: rgba(255, 102, 0, 0.15);
+            color: var(--color-yc-orange);
+            font-weight: 600;
+        }
+
+        .tag.green {
+            background: var(--color-nature-light);
+            color: var(--color-nature-green);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-top: var(--spacing-md);
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all var(--transition);
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-display);
+        }
+
+        .btn-primary {
+            background: var(--color-text);
+            color: var(--color-bg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-text);
+            border: 1.5px solid var(--color-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-text);
+        }
+
+        /* Hero Photo */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-photo-container {
+            position: relative;
+            width: 420px;
+            height: 500px;
+        }
+
+        .hero-photo-bg {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-nature-light) 0%, var(--color-warm) 50%, var(--color-accent-light) 100%);
+            border-radius: 200px 200px 120px 120px;
+        }
+
+        .hero-photo {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 200px 200px 120px 120px;
+            filter: grayscale(0%);
+        }
+
+        /* Section Styles */
+        section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-number {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--color-text-secondary);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        /* Bio Section */
+        #bio {
+            background: var(--color-warm);
+            max-width: 100%;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        #bio .bio-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--spacing-lg);
+            align-items: start;
+        }
+
+        .bio-left h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .bio-left p {
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+        }
+
+        .bio-right {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .bio-text {
+            font-family: var(--font-serif);
+            font-size: 1.375rem;
+            line-height: 1.7;
+            color: var(--color-text);
+        }
+
+        .bio-text em {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+
+        .bio-highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: var(--spacing-sm);
+        }
+
+        .highlight {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--color-bg);
+            border-radius: 16px;
+        }
+
+        .highlight-value {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--color-accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .highlight-label {
+            font-size: 0.8125rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* Press Section */
+        #press {
+            padding-top: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+        }
+
+        .press-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .press-item {
+            padding: 1.5rem;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--color-text);
+            transition: all var(--transition);
+        }
+
+        .press-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-color: var(--color-accent);
+        }
+
+        .press-source {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .press-title {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+
+        .press-arrow {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* Experience Section */
+        #experience {
+            padding-top: var(--spacing-lg);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--color-border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: var(--spacing-lg);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-date {
+            font-size: 0.8125rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .timeline-role {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-company {
+            font-size: 1rem;
+            color: var(--color-accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-company a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+        }
+
+        .timeline-company a:hover {
+            opacity: 0.8;
+        }
+
+        .timeline-desc {
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        /* Projects Section */
+        #projects {
+            padding-top: var(--spacing-xl);
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .project-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 24px;
+            padding: var(--spacing-md);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+            transition: all var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card.nerture {
+            background: linear-gradient(135deg, #fff8f0 0%, #fff5eb 100%);
+            border-color: rgba(255, 102, 0, 0.1);
+        }
+
+        .project-card.nature {
+            background: linear-gradient(135deg, var(--color-nature-light) 0%, #f0f7f0 100%);
+            border-color: rgba(74, 124, 89, 0.15);
+        }
+
+        .project-card.unicef {
+            background: linear-gradient(135deg, #e8f4fc 0%, #f0f8ff 100%);
+            border-color: rgba(0, 174, 239, 0.1);
+        }
+
+        .project-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 0.375rem 0.875rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .nerture .project-tag {
+            background: rgba(255, 102, 0, 0.1);
+            color: var(--color-yc-orange);
+        }
+
+        .nature .project-tag {
+            background: rgba(74, 124, 89, 0.15);
+            color: var(--color-nature-green);
+        }
+
+        .unicef .project-tag {
+            background: rgba(0, 174, 239, 0.1);
+            color: #00aeef;
+        }
+
+        .project-name {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-name a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .project-name a:hover {
+            text-decoration: underline;
+        }
+
+        .project-desc {
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .project-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-stat-value {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-style: italic;
+        }
+
+        .project-stat-label {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+        }
+
+        .project-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            opacity: 0.9;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: var(--color-text);
+            color: var(--color-bg);
+            max-width: 100%;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        #skills .skills-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        #skills .section-title {
+            color: var(--color-bg);
+        }
+
+        #skills .section-number {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .skill-item {
+            background: var(--color-text);
+            padding: 2rem;
+            text-align: center;
+            transition: background var(--transition);
+        }
+
+        .skill-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-detail {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        #contact .section-title {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        #contact p {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--color-text-secondary);
+            max-width: 500px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 100px;
+            font-size: 0.9375rem;
+            color: var(--color-text);
+            text-decoration: none;
+            transition: all var(--transition);
+        }
+
+        .contact-link:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+
+        .contact-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--color-border);
+            padding: var(--spacing-md);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.8125rem;
+            color: var(--color-text-secondary);
+        }
+
+        footer .location {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 6rem;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-tags, .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .hero-photo-container {
+                width: 280px;
+                height: 340px;
+            }
+
+            #bio .bio-container {
+                grid-template-columns: 1fr;
+            }
+
+            .bio-highlights {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .press-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+
+            .project-visual {
+                order: -1;
+                font-size: 4rem;
+                padding: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .bio-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="nav-logo">Annette</a>
+        <ul class="nav-links">
+            <li><a href="#bio">Bio</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-greeting">
+                <span class="wave">👋</span> Hey, I'm Annette
+            </p>
+            <h1>I build things that bring <em>transparency</em> to the world.</h1>
+            <p class="hero-bio">
+                Technical founder from Ghana. Self-taught developer. Currently making supply chains trustworthy, one batch at a time.
+            </p>
+            <div class="hero-tags">
+                <span class="tag yc">YC W25 Applicant</span>
+                <span class="tag green">Founder</span>
+                <span class="tag">Full-Stack Dev</span>
+                <span class="tag">Data Nerd</span>
+            </div>
+            <div class="hero-cta">
+                <a href="https://www.nerture.io" target="_blank" class="btn btn-primary">Visit Nerture →</a>
+                <a href="#contact" class="btn btn-secondary">Get in touch</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-photo-container">
+                <div class="hero-photo-bg"></div>
+                <img src="annette.jpg" alt="Annette Amoa" class="hero-photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section id="bio">
+        <div class="bio-container">
+            <div class="bio-left">
+                <h2>About me</h2>
+                <p>The slightly longer version</p>
+            </div>
+            <div class="bio-right">
+                <p class="bio-text">
+                    I'm <em>Annette Amoa</em>—a builder at heart. I started my journey in data analysis and cybersecurity, where I discovered the power of making complex information accessible and actionable.
+                </p>
+                <p class="bio-text">
+                    When I founded my own skincare company, <em>Netty & Nature</em>, I experienced firsthand the chaos of batch tracking. A routine Ghana FDA inspection revealed gaps that could've cost me everything. That problem became my obsession.
+                </p>
+                <p class="bio-text">
+                    Now I'm building <em>Nerture</em> with my co-founder Kojo—making supply chain traceability accessible to every CPG brand that cares about transparency. We're currently applying to Y Combinator W25.
+                </p>
+                <div class="bio-highlights">
+                    <div class="highlight">
+                        <div class="highlight-value">$500K</div>
+                        <div class="highlight-label">UNICEF funding secured</div>
+                    </div>
+                    <div class="highlight">
+                        <div class="highlight-value">2,500+</div>
+                        <div class="highlight-label">Products tracked</div>
+                    </div>
+                    <div class="highlight">
+                        <div class="highlight-value">Self-taught</div>
+                        <div class="highlight-label">Python → Full-stack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press Section -->
+    <section id="press">
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2 class="section-title">In the Press</h2>
+        </div>
+        
+        <div class="press-grid">
+            <a href="https://www.myjoyonline.com/50-female-entrepreneurs-graduate-from-access-bank-ghanas-womenpreneur-pitch-a-ton/" target="_blank" class="press-item">
+                <div class="press-source">MyJoyOnline</div>
+                <h3 class="press-title">50 female entrepreneurs graduate from Access Bank Ghana's Womenpreneur Pitch-a-ton</h3>
+                <span class="press-arrow">Read article →</span>
+            </a>
+            <a href="https://thebftonline.com/2025/04/03/access-bank-empowers-womenpreneurs-celebrates-10-years-of-impact/" target="_blank" class="press-item">
+                <div class="press-source">Business & Financial Times</div>
+                <h3 class="press-title">Access Bank empowers Womenpreneurs, celebrates 10 years of impact</h3>
+                <span class="press-arrow">Read article →</span>
+            </a>
+            <a href="https://www.munakalati.org/muna-kalati-shines-at-access-bank-women-preneur-pitch-a-thon-2025" target="_blank" class="press-item">
+                <div class="press-source">Muna Kalati</div>
+                <h3 class="press-title">Muna Kalati shines at Access Bank Women Preneur Pitch-a-Thon 2025</h3>
+                <span class="press-arrow">Read article →</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2 class="section-title">Work Experience</h2>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2025 — Present</div>
+                <h3 class="timeline-role">CTO & Co-founder</h3>
+                <p class="timeline-company"><a href="https://www.nerture.io" target="_blank">Nerture</a> · YC W25 Applicant</p>
+                <p class="timeline-desc">Building supply chain traceability for CPG brands. Leading technical architecture—React/Vite frontend, Node.js backend, PostgreSQL, SHA-256 cryptographic hashing for tamper-proof records.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2022 — Present</div>
+                <h3 class="timeline-role">Founder & CEO</h3>
+                <p class="timeline-company">Netty & Nature</p>
+                <p class="timeline-desc">Built a Ghanaian skincare brand from scratch. Developed comprehensive operations systems using Google Apps Script—procurement tracking, batch recording, inventory management, QC processes. First customer and proof-of-concept for Nerture.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2021 — 2022</div>
+                <h3 class="timeline-role">Data Analyst & Cybersecurity Researcher</h3>
+                <p class="timeline-company">UNICEF Project</p>
+                <p class="timeline-desc">Created a cybercrime dashboard that visualized threat patterns across West Africa. The project secured $500,000 in funding and influenced regional policy discussions on digital safety.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2019 — 2021</div>
+                <h3 class="timeline-role">Data Analyst</h3>
+                <p class="timeline-company">Various Projects</p>
+                <p class="timeline-desc">Built data pipelines and visualization dashboards. Self-taught Python, SQL, and eventually moved into full-stack development. This is where I fell in love with building tools that make data actionable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <span class="section-number">03</span>
+            <h2 class="section-title">Projects</h2>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card nerture">
+                <div class="project-info">
+                    <span class="project-tag">YC W25 Applicant</span>
+                    <h3 class="project-name"><a href="https://www.nerture.io" target="_blank">Nerture</a></h3>
+                    <p class="project-desc">Supply chain traceability for CPG brands. Track ingredients from procurement through production to consumer verification using cryptographic hashing.</p>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <span class="project-stat-value">SHA-256</span>
+                            <span class="project-stat-label">Tamper-proof</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="project-stat-value">FSMA 204</span>
+                            <span class="project-stat-label">Compliance</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="project-stat-value">446</span>
+                            <span class="project-stat-label">Y1 Target</span>
+                        </div>
+                    </div>
+                    <a href="https://www.nerture.io" target="_blank" class="project-link">Visit nerture.io →</a>
+                </div>
+                <div class="project-visual">🔗</div>
+            </div>
+            
+            <div class="project-card nature">
+                <div class="project-info">
+                    <span class="project-tag">Skincare Brand</span>
+                    <h3 class="project-name">Netty & Nature</h3>
+                    <p class="project-desc">Ghanaian skincare company specializing in handmade products with biocompatible ingredients. The origin story for Nerture—where we battle-tested our traceability system.</p>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <span class="project-stat-value">2,500+</span>
+                            <span class="project-stat-label">Products tracked</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="project-stat-value">4</span>
+                            <span class="project-stat-label">Signature scents</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="project-stat-value">100%</span>
+                            <span class="project-stat-label">Traceable</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-visual">🌿</div>
+            </div>
+            
+            <div class="project-card unicef">
+                <div class="project-info">
+                    <span class="project-tag">Cybersecurity Research</span>
+                    <h3 class="project-name">Cybercrime Dashboard</h3>
+                    <p class="project-desc">Data visualization platform that mapped cybercrime patterns across West Africa. Influenced regional policy and secured significant funding for digital safety initiatives.</p>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <span class="project-stat-value">$500K</span>
+                            <span class="project-stat-label">Funding secured</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="project-stat-value">West Africa</span>
+                            <span class="project-stat-label">Coverage</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-visual">🛡️</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="skills-container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">What I work with</h2>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon">⚛️</div>
+                    <div class="skill-name">Frontend</div>
+                    <div class="skill-detail">React, Vite, TypeScript</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🖥️</div>
+                    <div class="skill-name">Backend</div>
+                    <div class="skill-detail">Node.js, PostgreSQL</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🔐</div>
+                    <div class="skill-name">Security</div>
+                    <div class="skill-detail">SHA-256, Cryptography</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📊</div>
+                    <div class="skill-name">Data</div>
+                    <div class="skill-detail">Python, SQL, Analytics</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🔧</div>
+                    <div class="skill-name">Automation</div>
+                    <div class="skill-detail">Apps Script, Workflows</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🎨</div>
+                    <div class="skill-name">Design</div>
+                    <div class="skill-detail">Figma, UI/UX</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🏭</div>
+                    <div class="skill-name">Operations</div>
+                    <div class="skill-detail">Manufacturing, QC</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🚀</div>
+                    <div class="skill-name">Product</div>
+                    <div class="skill-detail">Strategy, Growth</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header" style="justify-content: center;">
+            <span class="section-number">05</span>
+            <h2 class="section-title">Let's connect</h2>
+        </div>
+        <p>Whether you're a brand thinking about traceability, an investor, or just want to chat about building in Africa.</p>
+        
+        <div class="contact-links">
+            <a href="mailto:annette@nerture.io" class="contact-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Email
+            </a>
+            <a href="https://linkedin.com/in/annetteamoa" target="_blank" class="contact-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                LinkedIn
+            </a>
+            <a href="https://twitter.com/annetteamoa" target="_blank" class="contact-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                </svg>
+                Twitter
+            </a>
+            <a href="https://github.com/annetteamoa" target="_blank" class="contact-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                GitHub
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            <span class="location">📍 Accra, Ghana</span> · 
+            © 2026 Annette Amoa
+        </p>
+    </footer>
+
+    <!-- Smooth scroll -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
